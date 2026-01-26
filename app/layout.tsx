@@ -40,7 +40,7 @@ export default function RootLayout({
           <ReactLenis root>
             <Navbar />
             {children}
-            <OnekoCat />
+            {/* <OnekoCat /> */}
           </ReactLenis>
         </ThemeProvider>
       </body>

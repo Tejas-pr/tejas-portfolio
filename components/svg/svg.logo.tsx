@@ -14,11 +14,11 @@ export default function Logo({
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      viewBox="0 0 500 500"
+      viewBox="0 0 600 600"
       className={className}
       preserveAspectRatio="xMidYMid meet"
     >
-      <image href="/images/dnchat.png" x="0" y="0" width="500" height="500" />
+      <image href="/images/logo.png" x="0" y="0" width="600" height="600" />
     </svg>
   );
 }
