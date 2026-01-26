@@ -37,6 +37,7 @@ import Mail from "@/components/svg/Mail";
 import X from "@/components/svg/X";
 
 // Technology Components
+import Youtube from "@/components/svg/Youtube";
 import TypeScript from "@/components/technologies/TypeScript";
 
 // Component mapping for skills
@@ -126,6 +127,11 @@ export const socialLinks = [
     name: "Github",
     href: "https://github.com/Tejas-pr",
     icon: <Github />,
+  },
+  {
+    name: "Youtube",
+    href: "https://youtube.com",
+    icon: <Youtube />,
   },
   {
     name: "Email",

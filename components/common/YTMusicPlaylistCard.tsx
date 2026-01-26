@@ -1,0 +1,71 @@
+"use client";
+
+import { useState } from "react";
+import YoutubeMusic from "../svg/YoutubeMusic";
+import Play from "../svg/Play";
+
+export default function YTMusicPlaylistCard() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const PLAYLIST_ID = "PLw_kUM5bQGPJvYlWjHxct44ZAO2dwlI-s";
+
+  const track = {
+    title: "01_AA_songs_",
+    artist: "Tejas P R • Playlist • 2026",
+    cover:
+      "https://i.ytimg.com/pl_c/PLw_kUM5bQGPJvYlWjHxct44ZAO2dwlI-s/generated_thumbnail.jpg?sqp=CKyV38sG-oaymwEUCKAEEKAEIABIWvqriqkDBBoCCAGi85f_AwYIl4rPygY&rs=AMzJL3ldDV5Q-YSw5z8ms7QwTz4SOyB0bA",
+  };
+
+  return (
+    <div className="w-full max-w-2xl mt-10 mb-10">
+      <div className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-[#0a0a0a] p-4 transition-colors hover:bg-neutral-900/50">
+        {/* Album Art */}
+        <div className="relative shrink-0 overflow-hidden rounded-md">
+          <img
+            src={track.cover}
+            alt={track.title}
+            className="h-16 w-16 object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col justify-center gap-0.5 overflow-hidden">
+          <div className="flex items-center gap-2">
+            <span className="text-red-500">
+              <YoutubeMusic className="h-4 w-4" />
+            </span>
+            <span className="text-xs font-medium text-neutral-400">
+              Playlist
+            </span>
+          </div>
+          <h3 className="truncate font-medium text-neutral-200">
+            {track.title}
+          </h3>
+          <p className="truncate text-sm text-neutral-500">{track.artist}</p>
+        </div>
+
+        {/* Play Button */}
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-700 bg-transparent text-neutral-200 transition-colors hover:scale-105 hover:bg-neutral-800 hover:text-white focus:outline-none"
+        >
+          <Play className="ml-0.5 h-4 w-4" />
+        </button>
+      </div>
+
+      {/* Player */}
+      {isPlaying && (
+        <div className="mt-4 overflow-hidden rounded-xl">
+          <iframe
+            width="100%"
+            height="315"
+            src={`https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&autoplay=1`}
+            title="YouTube playlist player"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </div>
+      )}
+    </div>
+  );
+}
