@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/common/ThemeProvider";
+import ReactLenis from "lenis/react";
+import Navbar from "@/components/common/Navbar";
+import OnekoCat from "@/components/common/OnekoCat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +31,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ReactLenis root>
+            <Navbar />
+            {children}
+            <OnekoCat />
+          </ReactLenis>
+        </ThemeProvider>
       </body>
     </html>
   );
