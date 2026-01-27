@@ -3,6 +3,7 @@ import YTMusicPlaylistCard from "@/components/common/YTMusicPlaylistCard";
 import Hero from "@/components/landing/Hero";
 import Experience from "@/components/landing/Experience";
 import Technologies from "@/components/landing/Technologies";
+import Projects from "@/components/landing/Projects";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <YTMusicPlaylistCard />
       <Technologies />
       <Experience />
+      <Projects />
     </Container>
   );
 }
