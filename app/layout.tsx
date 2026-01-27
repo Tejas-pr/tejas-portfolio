@@ -6,6 +6,7 @@ import ReactLenis from "lenis/react";
 import Navbar from "@/components/common/Navbar";
 import OnekoCat from "@/components/common/OnekoCat";
 import Footer from "@/components/common/Footer";
+import { Quote } from "@/components/common/Quote";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -89,6 +90,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <OnekoCat />
+            <Quote />
             <Footer />
           </ReactLenis>
         </ThemeProvider>
