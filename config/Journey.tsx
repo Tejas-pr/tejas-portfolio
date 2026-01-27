@@ -1,5 +1,4 @@
-import Calender from "@/components/svg/Calender";
-import ShieldCheck from "lucide-react";
+import { Instagram, Swords } from "lucide-react";
 import React from "react";
 
 export type JourneyItem = {
@@ -11,17 +10,17 @@ export type JourneyItem = {
 
 export const journeyItems: JourneyItem[] = [
   {
-    name: "My Journey",
-    description: "Overview of my learning and career journey.",
-    icon: Calender,
+    name: "Instagram",
+    description: "Making reels on instagram",
+    icon: Instagram,
+    href: "https://instagram.com/tejas",
+  },
+  {
+    name: "Badminton",
+    description: "Playing badminton",
+    icon: Swords,
     href: "#",
   },
-  // {
-  //   name: "Certificates & Achievements",
-  //   description: "A curated list of certificates and achievements.",
-  //   icon: ShieldCheck,
-  //   href: "/journey/achievements",
-  // },
 ];
 
 const journeyConfig = {

@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Journey() {
   return (
     <Container className="mt-10">
-      <SectionHeading subHeading="My" heading="Journey" />
+      <SectionHeading subHeading="Personal" heading="Life" />
       <div className="mt-8 flex flex-col gap-4">
         {journeyItems.map((item) => (
           <Link className="group" href={item.href} key={item.name}>
@@ -29,7 +29,7 @@ export default function Journey() {
                   {item.description}
                 </p>
               </div>
-              <ArrowRight className="hidden size-4 transition-all duration-300 group-hover:block" />
+              {/* <ArrowRight className="hidden size-4 transition-all duration-300 group-hover:block" /> */}
             </Card>
           </Link>
         ))}
