@@ -16,7 +16,7 @@ export default function YTMusicPlaylistCard() {
   };
 
   return (
-    <div className="w-full max-w-2xl mt-10 mb-10">
+    <div className="w-full max-w-2xl mt-10">
       <div className="flex items-center gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:bg-[#0a0a0a] dark:hover:bg-neutral-900/50">
         {/* Album Art */}
         <div className="relative shrink-0 overflow-hidden rounded-md">
@@ -29,12 +29,12 @@ export default function YTMusicPlaylistCard() {
 
         {/* Content */}
         <div className="flex flex-1 flex-col justify-center gap-0.5 overflow-hidden">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-1">
             <span className="text-red-500">
               <YoutubeMusic className="h-4 w-4" />
             </span>
             <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
-              Playlist
+              Recently Played
             </span>
           </div>
           <h3 className="truncate font-medium text-neutral-900 dark:text-neutral-200">
