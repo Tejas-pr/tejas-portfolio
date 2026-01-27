@@ -16,10 +16,12 @@ import {
 } from "@/components/ui/tooltip";
 import Skill from "../common/Skill";
 import { GetInTouchButton } from "../contact/ContactModal";
+import { Download } from "lucide-react";
 
 const buttonIcons = {
   CV: CV,
   Chat: Chat,
+  Download: Download,
 };
 
 export default function Hero() {
@@ -98,7 +100,7 @@ export default function Hero() {
       </div>
 
       {/* Buttons */}
-      <div className="mt-8 flex gap-4">
+      <div className="mt-8 flex gap-2">
         {buttons.map((button, index) => {
           const IconComponent =
             buttonIcons[button.icon as keyof typeof buttonIcons];
@@ -113,8 +115,45 @@ export default function Hero() {
                 className={cn(
                   button.variant === "outline" && "inset-shadow-indigo-500",
                   button.variant === "default" && "inset-shadow-indigo-500",
+                  "ml-2",
                 )}
               />
+            );
+          }
+
+          // Handle Download Button
+          if ("isDownload" in button && button.isDownload) {
+            // Extract File ID from Google Drive URL
+            // Expected format: .../d/FILE_ID/preview or .../d/FILE_ID/view
+            const fileIdMatch = button.href.match(/\/d\/([a-zA-Z0-9_-]+)/);
+            const fileId = fileIdMatch ? fileIdMatch[1] : null;
+
+            // Use API proxy if ID found, otherwise fallback to original href
+            const downloadHref = fileId
+              ? `/api/resume?id=${fileId}`
+              : button.href;
+
+            return (
+              <Button
+                key={index}
+                variant={button.variant as "outline" | "default"}
+                size="icon"
+                className={cn(
+                  "aspect-square p-2",
+                  button.variant === "outline" && "inset-shadow-indigo-500",
+                )}
+                asChild
+              >
+                <a
+                  href={downloadHref}
+                  download="Tejas_PR_Resume.pdf"
+                  aria-label="Download Resume"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {IconComponent && <IconComponent className="size-4" />}
+                </a>
+              </Button>
             );
           }
 

@@ -35,8 +35,7 @@ import Github from "@/components/svg/Github";
 import LinkedIn from "@/components/svg/LinkedIn";
 import Mail from "@/components/svg/Mail";
 import X from "@/components/svg/X";
-
-// Technology Components
+import { Instagram } from "lucide-react";
 import Youtube from "@/components/svg/Youtube";
 import TypeScript from "@/components/technologies/TypeScript";
 
@@ -103,6 +102,13 @@ export const heroConfig = {
       icon: "CV",
     },
     {
+      variant: "outline",
+      text: "",
+      href: "https://drive.google.com/file/d/1CTa6iST8JXjU63HQXt4aqMpU58Ml19m6/preview",
+      icon: "Download",
+      isDownload: true,
+    },
+    {
       variant: "default",
       text: "Get in touch",
       href: "/contact",
@@ -132,5 +138,10 @@ export const socialLinks = [
     name: "Email",
     href: "mailto:tejas.teju02@gmail.com",
     icon: <Mail />,
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/tejas_p_r",
+    icon: <Instagram />,
   },
 ];
