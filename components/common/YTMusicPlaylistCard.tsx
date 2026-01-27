@@ -17,7 +17,7 @@ export default function YTMusicPlaylistCard() {
 
   return (
     <div className="w-full max-w-2xl mt-10 mb-10">
-      <div className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-[#0a0a0a] p-4 transition-colors hover:bg-neutral-900/50">
+      <div className="flex items-center gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:bg-[#0a0a0a] dark:hover:bg-neutral-900/50">
         {/* Album Art */}
         <div className="relative shrink-0 overflow-hidden rounded-md">
           <img
@@ -33,20 +33,22 @@ export default function YTMusicPlaylistCard() {
             <span className="text-red-500">
               <YoutubeMusic className="h-4 w-4" />
             </span>
-            <span className="text-xs font-medium text-neutral-400">
+            <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
               Playlist
             </span>
           </div>
-          <h3 className="truncate font-medium text-neutral-200">
+          <h3 className="truncate font-medium text-neutral-900 dark:text-neutral-200">
             {track.title}
           </h3>
-          <p className="truncate text-sm text-neutral-500">{track.artist}</p>
+          <p className="truncate text-sm text-neutral-600 dark:text-neutral-500">
+            {track.artist}
+          </p>
         </div>
 
         {/* Play Button */}
         <button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-700 bg-transparent text-neutral-200 transition-colors hover:scale-105 hover:bg-neutral-800 hover:text-white focus:outline-none"
+          className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-transparent text-neutral-700 transition-colors hover:scale-105 hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-white"
         >
           <Play className="ml-0.5 h-4 w-4" />
         </button>
