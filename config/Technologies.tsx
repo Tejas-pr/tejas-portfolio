@@ -1,5 +1,4 @@
 import AWS from "@/components/technologies/AWS";
-import BootStrap from "@/components/technologies/BootStrap";
 import Bun from "@/components/technologies/Bun";
 import CSS from "@/components/technologies/CSS";
 import ExpressJs from "@/components/technologies/ExpressJs";
@@ -7,7 +6,6 @@ import Figma from "@/components/technologies/Figma";
 import Html from "@/components/technologies/Html";
 import JavaScript from "@/components/technologies/JavaScript";
 import MongoDB from "@/components/technologies/MongoDB";
-import NestJs from "@/components/technologies/NestJs";
 import NextJs from "@/components/technologies/NextJs";
 import NodeJs from "@/components/technologies/NodeJs";
 import Reactjs from "@/components/technologies/Reactjs";
@@ -29,6 +27,13 @@ import Docker from "@/components/technologies/Docker";
 import K8s from "@/components/technologies/K8s";
 import Npm from "@/components/technologies/Npm";
 import Pnpm from "@/components/technologies/Pnpm";
+import Prometheus from "@/components/technologies/Prometheus";
+import Grafana from "@/components/technologies/Grafana";
+import Github from "@/components/svg/Github";
+import Git from "@/components/technologies/Git";
+import IOS from "@/components/technologies/IOS";
+import Ubuntu from "@/components/technologies/Ubuntu";
+import Windows from "@/components/technologies/Windows";
 
 export const technologies = [
   {
@@ -108,12 +113,20 @@ export const technologies = [
       { name: "Docker", href: "https://www.docker.com/", icon: <Docker /> },
       { name: "Kubernetes", href: "https://www.kubernetes.io/", icon: <K8s /> },
       { name: "AWS", href: "https://aws.amazon.com/", icon: <AWS /> },
+      {
+        name: "Prometheus",
+        href: "https://aws.amazon.com/",
+        icon: <Prometheus />,
+      },
+      { name: "Grafana", href: "https://aws.amazon.com/", icon: <Grafana /> },
     ],
   },
   {
     category: "Tools",
     items: [
       { name: "Postman", href: "https://www.postman.com/", icon: <Postman /> },
+      { name: "Git", href: "https://www.postman.com/", icon: <Git /> },
+      { name: "Github", href: "https://www.postman.com/", icon: <Github /> },
       { name: "Vercel", href: "https://vercel.com/", icon: <Vercel /> },
       { name: "Figma", href: "https://www.figma.com/", icon: <Figma /> },
       { name: "Bun", href: "https://bun.sh/", icon: <Bun /> },
@@ -124,6 +137,14 @@ export const technologies = [
         href: "https://react-icons.github.io/react-icons/",
         icon: <ReactIcon />,
       },
+    ],
+  },
+  {
+    category: "Os",
+    items: [
+      { name: "Ubuntu", href: "https://www.postman.com/", icon: <Ubuntu /> },
+      { name: "IOS", href: "https://www.postman.com/", icon: <IOS /> },
+      { name: "Windows", href: "https://www.postman.com/", icon: <Windows /> },
     ],
   },
 ];
