@@ -6,6 +6,9 @@ import Technologies from "@/components/landing/Technologies";
 import Projects from "@/components/landing/Projects";
 import About from "@/components/landing/About";
 import Github from "@/components/landing/Github";
+import CTA from "@/components/landing/CTA";
+import Blog from "@/components/landing/Blog";
+import Journey from "@/components/landing/Journey";
 
 export default function Home() {
   return (
@@ -17,6 +20,9 @@ export default function Home() {
       <Projects />
       <About />
       <Github />
+      {/* <Blog /> */}
+      <CTA />
+      <Journey />
     </Container>
   );
 }

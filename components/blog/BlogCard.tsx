@@ -1,16 +1,16 @@
-import { Badge } from '@/components/ui/badge';
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from '@/components/ui/card';
-import { BlogPostPreview } from '@/types/blog';
-import { Link } from 'next-view-transitions';
-import Image from 'next/image';
+} from "@/components/ui/card";
+import { BlogPostPreview } from "@/types/blog";
+import Image from "next/image";
 
-import ArrowRight from '../svgs/ArrowRight';
-import Calender from '../svgs/Calender';
+import ArrowRight from "../svg/ArrowRight";
+import Calender from "../svg/Calender";
+import Link from "next/link";
 
 interface BlogCardProps {
   post: BlogPostPreview;
@@ -20,10 +20,10 @@ export function BlogCard({ post }: BlogCardProps) {
   const { slug, frontmatter } = post;
   const { title, description, image, tags, date } = frontmatter;
 
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
   return (
