@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Projects() {
   return (
-    <Container className="mt-20">
+    <Container className="mt-20" id="projects">
       <SectionHeading subHeading="Featured" heading="Projects" />
 
       <ProjectList className="mt-8" projects={projects.slice(0, 4)} />

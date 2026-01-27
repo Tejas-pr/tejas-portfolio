@@ -129,11 +129,6 @@ export const socialLinks = [
     icon: <Github />,
   },
   {
-    name: "Youtube",
-    href: "https://youtube.com",
-    icon: <Youtube />,
-  },
-  {
     name: "Email",
     href: "mailto:tejas.teju02@gmail.com",
     icon: <Mail />,

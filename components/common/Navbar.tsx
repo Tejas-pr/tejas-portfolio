@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 
 import Logo from "../svg/svg.logo";
 import {
@@ -18,6 +20,20 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const lenis = useLenis();
+  const pathname = usePathname();
+
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const targetId = href.replace("/", "");
+      lenis?.scrollTo(targetId);
+    }
+    setIsOpen(false);
+  };
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -32,11 +48,11 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#tech", label: "Tech" },
-    { href: "#work", label: "Work" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#home", label: "Home" },
+    { href: "/#tech", label: "Tech" },
+    { href: "/#work", label: "Work" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -56,6 +72,7 @@ export default function Navbar() {
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
+                        onClick={(e) => handleScroll(e, item.href)}
                       >
                         {item.label}
                       </NavigationMenuLink>
@@ -121,7 +138,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 className="text-lg font-medium py-2 px-4 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleScroll(e, item.href)}
               >
                 {item.label}
               </Link>
