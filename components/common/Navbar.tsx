@@ -17,6 +17,7 @@ import {
 import { ThemeToggleButton } from "./ThemeSwitch";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import ContactModal from "../contact/ContactModal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,14 +70,28 @@ export default function Navbar() {
               <NavigationMenuList>
                 {navItems.map((item) => (
                   <NavigationMenuItem key={item.label}>
-                    <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={navigationMenuTriggerStyle()}
-                        onClick={(e) => handleScroll(e, item.href)}
-                      >
-                        {item.label}
+                    {item.href === "/contact" ? (
+                      <ContactModal>
+                        <NavigationMenuLink
+                          className={cn(
+                            navigationMenuTriggerStyle(),
+                            "cursor-pointer",
+                          )}
+                        >
+                          {item.label}
+                        </NavigationMenuLink>
+                      </ContactModal>
+                    ) : (
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={item.href}
+                          className={navigationMenuTriggerStyle()}
+                          onClick={(e) => handleScroll(e, item.href)}
+                        >
+                          {item.label}
+                        </Link>
                       </NavigationMenuLink>
-                    </Link>
+                    )}
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
@@ -133,16 +148,27 @@ export default function Navbar() {
 
           {/* Sidebar Links */}
           <div className="flex flex-col p-4 gap-4 overflow-y-auto">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-lg font-medium py-2 px-4 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
-                onClick={(e) => handleScroll(e, item.href)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.href === "/contact" ? (
+                <ContactModal key={item.label}>
+                  <div
+                    className="hover:bg-accent hover:text-accent-foreground w-full cursor-pointer rounded-md px-4 py-2 text-lg font-medium transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </div>
+                </ContactModal>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-2 text-lg font-medium transition-colors"
+                  onClick={(e) => handleScroll(e, item.href)}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </div>

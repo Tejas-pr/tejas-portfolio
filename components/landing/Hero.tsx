@@ -1,3 +1,5 @@
+"use client";
+
 import { parseTemplate } from "@/lib/hero";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -13,6 +15,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Skill from "../common/Skill";
+import { GetInTouchButton } from "../contact/ContactModal";
 
 const buttonIcons = {
   CV: CV,
@@ -59,6 +62,7 @@ export default function Hero() {
         alt="hero"
         width={100}
         height={100}
+        priority
         className="size-24 rounded-full bg-blue-300 dark:bg-yellow-300"
       />
 
@@ -98,6 +102,22 @@ export default function Hero() {
         {buttons.map((button, index) => {
           const IconComponent =
             buttonIcons[button.icon as keyof typeof buttonIcons];
+
+          if (button.href === "/contact") {
+            return (
+              <GetInTouchButton
+                key={index}
+                variant={button.variant as "default" | "outline"}
+                text={button.text}
+                icon={IconComponent}
+                className={cn(
+                  button.variant === "outline" && "inset-shadow-indigo-500",
+                  button.variant === "default" && "inset-shadow-indigo-500",
+                )}
+              />
+            );
+          }
+
           return (
             <Button
               key={index}

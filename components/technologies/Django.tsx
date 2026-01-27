@@ -7,7 +7,7 @@ export default function Django({ className }: { className?: string }) {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      enable-background="new 0 0 512 512"
+      enableBackground="new 0 0 512 512"
     >
       <g id="5151e0c8492e5103c096af88a51f62ed">
         <path

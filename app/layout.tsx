@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Tejas | Full Stack Developer",
-    template: "%s | Tejas",
+    default: "Tejas P R | Full Stack Developer",
+    template: "%pr | Tejas",
   },
   description:
     "Portfolio of Tejas, a passionate Full Stack Developer building modern web applications with cutting-edge technologies.",
@@ -34,24 +34,24 @@ export const metadata: Metadata = {
     "Portfolio",
     "Software Engineer",
   ],
-  authors: [{ name: "Tejas" }],
-  creator: "Tejas",
-  publisher: "Tejas",
+  authors: [{ name: "Tejas P R" }],
+  creator: "Tejas P R",
+  publisher: "Tejas P R",
   icons: {
     icon: "/images/logos/logotj.svg",
   },
   openGraph: {
-    title: "Tejas | Full Stack Developer",
+    title: "Tejas P R | Full Stack Developer",
     description:
       "Explore the portfolio of Tejas, featuring innovative web projects and technical expertise.",
     url: "https://tejaspr.site/", // You should replace this with your actual domain when deployed
-    siteName: "Tejas Portfolio",
+    siteName: "Tejas P R Portfolio",
     images: [
       {
         url: "/images/logos/logotj.svg", // Using logo as placeholder, ideally use a dedicated OG image
         width: 800,
         height: 600,
-        alt: "Tejas Portfolio Logo",
+        alt: "Tejas P R Portfolio Logo",
       },
     ],
     locale: "en_US",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tejas | Full Stack Developer",
+    title: "Tejas P R | Full Stack Developer",
     description:
       "Explore the portfolio of Tejas, featuring innovative web projects and technical expertise.",
     images: ["/images/logos/logotj.svg"], // Using logo as placeholder
@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
