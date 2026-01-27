@@ -12,7 +12,7 @@ export default function YTMusicPlaylistCard() {
     title: "01_AA_songs_",
     artist: "Tejas P R • Playlist • 2026",
     cover:
-      "https://i.ytimg.com/pl_c/PLw_kUM5bQGPJvYlWjHxct44ZAO2dwlI-s/generated_thumbnail.jpg?sqp=CKyV38sG-oaymwEUCKAEEKAEIABIWvqriqkDBBoCCAGi85f_AwYIl4rPygY&rs=AMzJL3ldDV5Q-YSw5z8ms7QwTz4SOyB0bA",
+      "https://images.unsplash.com/photo-1583071647239-da8180d40b99?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
 
   return (

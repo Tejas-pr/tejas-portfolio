@@ -24,6 +24,8 @@ A modern, minimalist, and highly customizable developer portfolio built with the
 - **Components**: [Radix UI](https://www.radix-ui.com/)
 - **Animation**: [CVA](https://cva.style/) & CSS Modules
 - **Package Manager**: [Bun](https://bun.sh/)
+- **Icons**: [svg-icons](https://www.svgrepo.com/)
+- **Svg to Code**: [svg-to-code](https://nikitahl.github.io/svg-2-code/)
 
 ## 🚀 Getting Started
 

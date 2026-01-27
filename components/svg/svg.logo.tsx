@@ -18,7 +18,13 @@ export default function Logo({
       className={className}
       preserveAspectRatio="xMidYMid meet"
     >
-      <image href="/images/logo.png" x="0" y="0" width="600" height="600" />
+      <image
+        href="/images/logos/logo.png"
+        x="0"
+        y="0"
+        width="600"
+        height="600"
+      />
     </svg>
   );
 }

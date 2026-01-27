@@ -57,7 +57,7 @@ export const heroConfig = {
   // Personal Information
   name: "Tejas",
   title: "A Full Stack Developer.",
-  avatar: "/images/dnchat.png",
+  avatar: "/images/logos/dnchat.png",
 
   // Skills Configuration
   skills: [
