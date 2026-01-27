@@ -4,6 +4,8 @@ import Hero from "@/components/landing/Hero";
 import Experience from "@/components/landing/Experience";
 import Technologies from "@/components/landing/Technologies";
 import Projects from "@/components/landing/Projects";
+import About from "@/components/landing/About";
+import Github from "@/components/landing/Github";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <Technologies />
       <Experience />
       <Projects />
+      <About />
+      <Github />
     </Container>
   );
 }
