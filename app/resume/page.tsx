@@ -3,6 +3,8 @@ import { getPageMetadata } from "@/config/Meta";
 import { resumeConfig } from "@/config/Resume";
 import { Separator } from "@radix-ui/react-separator";
 import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export const metadata: Metadata = {
   ...getPageMetadata("/resume"),
@@ -20,6 +22,15 @@ export const metadata: Metadata = {
 };
 
 export default function ResumePage() {
+  // Extract File ID from Google Drive URL
+  const fileIdMatch = resumeConfig.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  const fileId = fileIdMatch ? fileIdMatch[1] : null;
+
+  // Use API proxy if ID found, otherwise fallback to original URL
+  const downloadHref = fileId
+    ? `/api/resume?id=${fileId}`
+    : resumeConfig.url;
+
   return (
     <Container className="py-16">
       <div className="space-y-8">
@@ -30,6 +41,22 @@ export default function ResumePage() {
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             My resume.
           </p>
+          <Button
+            variant="default"
+            className="inset-shadow-indigo-500"
+            asChild
+          >
+            <a
+              href={downloadHref}
+              download="Tejas_PR_Resume.pdf"
+              aria-label="Download Resume"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Download className="mr-2 size-4" />
+              Download Resume
+            </a>
+          </Button>
         </div>
         <Separator />
         <div className="mx-auto max-w-2xl">

@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Stackwatch",
     description: "Built Stackwatch, a distributed, real-time uptime monitoring platform with a scalable microservices architecture.",
     image: "/images/projects/stackwatch.png",
-    video: "",
+    video: "/videos/stackwatch.mp4",
     link: "https://github.com/Tejas-pr/stackwatch",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
