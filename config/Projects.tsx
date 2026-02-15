@@ -28,7 +28,7 @@ export const projects: Project[] = [
     description:
       "Interactive AI-powered drawing platform where users can draw shapes like rectangles, circles, triangles, and freehand strokes using a refined ShadCN UI. Built with a scalable monorepo architecture using Turborepo, Next.js, Prisma ORM, and TailwindCSS — featuring Better Auth for authentication and real-time collaboration powered by WebSockets. Includes BullMQ + Redis for job queueing, CI/CD-enabled automated Docker deployments, and LangChain-driven AI to generate shapes and assist with creativity.",
     image: "/images/projects/sketchly.png",
-    video: "https://youtu.be/_FFDLwJ_pJY",
+    video: "",
     link: "https://drawing.tejaspr.site/",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Stackwatch",
     description: "Built Stackwatch, a distributed, real-time uptime monitoring platform with a scalable microservices architecture.",
     image: "/images/projects/stackwatch.png",
-    video: "/videos/weekend.mp4",
+    video: "",
     link: "https://github.com/Tejas-pr/stackwatch",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
