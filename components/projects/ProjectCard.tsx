@@ -22,6 +22,12 @@ import Github from "../svg/Github";
 import PlayCircle from "../svg/PlayCircle";
 import Website from "../svg/Website";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import dynamic from "next/dynamic";
+
+const ReactPlayer = dynamic(() => import("react-player"), { 
+  ssr: false,
+  loading: () => <div className="flex h-full w-full items-center justify-center">Loading player...</div>
+});
 
 interface ProjectCardProps {
   project: Project;
@@ -41,7 +47,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             width={1920}
             height={1080}
           />
-          {/* {project.video && (
+          {project.video && (
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
               <DialogTrigger asChild>
                 <div className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:backdrop-blur-xs">
@@ -52,18 +58,43 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </DialogTrigger>
               <DialogContent className="w-full max-w-4xl border-0 p-0">
                 <div className="aspect-video w-full">
-                  <video
-                    className="h-full w-full rounded-lg object-cover"
-                    src={project.video}
-                    autoPlay
-                    loop
-                    controls
-                  />
+                  {/* Use ReactPlayer for external URLs (YouTube, Vimeo, etc.) */}
+                  {(project.video.startsWith('http://') || 
+                    project.video.startsWith('https://')) && 
+                   !project.video.match(/\.(mp4|webm|ogg|mov)$/i) ? (
+                    <ReactPlayer
+                      url={project.video}
+                      width="100%"
+                      height="100%"
+                      controls={true}
+                      playing={true}
+                      onReady={() => console.log('ReactPlayer ready for:', project.video)}
+                      onError={(e: any) => console.error('ReactPlayer error:', e)}
+                      config={{
+                        youtube: {
+                          playerVars: { showinfo: 1, modestbranding: 1 }
+                        },
+                        vimeo: {
+                          playerOptions: { byline: false }
+                        }
+                      }}
+                    />
+                  ) : (
+                    /* Use native video tag for local files or direct video URLs */
+                    <video
+                      className="h-full w-full rounded-lg object-cover"
+                      src={project.video}
+                      autoPlay
+                      loop
+                      controls
+                      muted
+                    />
+                  )}
                 </div>
                 <DialogTitle className="sr-only">{project.title}</DialogTitle>
               </DialogContent>
             </Dialog>
-          )} */}
+          )}
         </div>
       </CardHeader>
 

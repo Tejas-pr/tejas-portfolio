@@ -28,7 +28,7 @@ export const projects: Project[] = [
     description:
       "Interactive AI-powered drawing platform where users can draw shapes like rectangles, circles, triangles, and freehand strokes using a refined ShadCN UI. Built with a scalable monorepo architecture using Turborepo, Next.js, Prisma ORM, and TailwindCSS — featuring Better Auth for authentication and real-time collaboration powered by WebSockets. Includes BullMQ + Redis for job queueing, CI/CD-enabled automated Docker deployments, and LangChain-driven AI to generate shapes and assist with creativity.",
     image: "/images/projects/sketchly.png",
-    video: "#",
+    video: "https://youtu.be/_FFDLwJ_pJY",
     link: "https://drawing.tejaspr.site/",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
@@ -50,11 +50,36 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
+    title: "Stackwatch",
+    description: "Built Stackwatch, a distributed, real-time uptime monitoring platform with a scalable microservices architecture.",
+    image: "/images/projects/stackwatch.png",
+    video: "/videos/weekend.mp4",
+    link: "https://github.com/Tejas-pr/stackwatch",
+    technologies: [
+      { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
+      { name: "Next.js", icon: <NextJs key="nextjs" /> },
+      { name: "TypeScript", icon: <TypeScript key="typescript" /> },
+      { name: "Vercel", icon: <Vercel key="vercel" /> },
+      { name: "PostgreSQL", icon: <PostgreSQL key="postgresql" /> },
+      { name: "Tailwind CSS", icon: <TailwindCss key="tailwindcss" /> },
+      { name: "shadcn/ui", icon: <Shadcn key="shadcn" /> },
+      { name: "Prisma", icon: <Prisma key="prisma" /> },
+      { name: "Docker", icon: <Docker key="docker" /> },
+      { name: "Node.js", icon: <NodeJs key="nodejs" /> },
+      { name: "Express.js", icon: <ExpressJs key="expressjs" /> },
+    ],
+    github: "https://github.com/Tejas-pr/stackwatch",
+    live: "https://github.com/Tejas-pr/stackwatch",
+    details: true,
+    projectDetailsPageSlug: "/projects/stackwatch",
+    isWorking: true,
+  },
+  {
     title: "Dentora",
     description:
       "Dental booking platform. with appointment booking, patient management, doctor management, insurance processing, and billing features.",
     image: "/images/projects/dentora.png",
-    video: "#",
+    video: "",
     link: "https://github.com/Dentora-in/dentora",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
@@ -80,7 +105,7 @@ export const projects: Project[] = [
     description:
       "A full-stack real-time chat application built with a modern monorepo architecture using Turborepo. It features instant messaging powered by WebSockets, secure user authentication, and persistent message storage with Prisma ORM. The app is designed with a clean UI using TailwindCSS and TypeScript for type safety, ensuring both performance and scalability.",
     image: "/images/projects/chat-app.png",
-    video: "#",
+    video: "",
     link: "https://github.com/Tejas-pr/chatapp",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
@@ -106,7 +131,7 @@ export const projects: Project[] = [
     description:
       "AI PDF Chatbot Fullstack is a SaaS platform designed to help users interact with and analyze PDF documents using advanced AI.",
     image: "/images/projects/ai-pdf.png",
-    video: "#",
+    video: "",
     link: "https://ai-pdf-chatbot-fullstack.vercel.app/",
     technologies: [
       { name: "Next.js", icon: <NextJs key="nextjs" /> },
@@ -128,7 +153,7 @@ export const projects: Project[] = [
     description:
       "A visually stunning Space Landing Page built using React, TypeScript, and Tailwind CSS. This project creates an engaging and modern UI to showcase space-related content.",
     image: "/images/projects/space.png",
-    video: "#",
+    video: "",
     link: "https://space-ts-landingpage.vercel.app/",
     technologies: [
       { name: "React", icon: <ReactIcon key="react" /> },
@@ -147,7 +172,7 @@ export const projects: Project[] = [
     description:
       "A Paytm-inspired wallet and transaction system built to understand real-world money transfers. It supports user-to-user transactions using MongoDB sessions to ensure atomicity and consistency. The project focuses on backend correctness, secure transfers, and a clean React-based UI.",
     image: "/images/projects/paytm-clone.png",
-    video: "#",
+    video: "",
     link: "https://github.com/Tejas-pr/paytm",
     technologies: [
       { name: "React", icon: <ReactIcon key="react" /> },
@@ -168,7 +193,7 @@ export const projects: Project[] = [
     description:
       "Shoptopia is a full-stack e-commerce platform that allows users to browse, add, and view products seamlessly. It includes a dedicated admin panel for efficient product management, focusing on scalability, clean architecture, and a smooth shopping experience.",
     image: "/images/projects/shoptopia.png",
-    video: "#",
+    video: "",
     link: "https://github.com/Tejas-pr/Shoptopia",
     technologies: [
       { name: "React", icon: <ReactIcon key="react" /> },
@@ -187,7 +212,7 @@ export const projects: Project[] = [
     description:
       "Develop a real-time data processing system to monitor weather conditions and provide summarized insights using rollups and aggregates.",
     image: "/images/projects/weather.png",
-    video: "#",
+    video: "",
     link: "https://github.com/Tejas-pr/",
     technologies: [
       { name: "React", icon: <ReactIcon key="react" /> },
