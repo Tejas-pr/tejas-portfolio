@@ -27,7 +27,7 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { 
   ssr: false,
   loading: () => <div className="flex h-full w-full items-center justify-center">Loading player...</div>
-});
+}) as any;
 
 interface ProjectCardProps {
   project: Project;
@@ -70,14 +70,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
                       playing={true}
                       onReady={() => console.log('ReactPlayer ready for:', project.video)}
                       onError={(e: any) => console.error('ReactPlayer error:', e)}
-                      config={{
-                        youtube: {
-                          playerVars: { showinfo: 1, modestbranding: 1 }
-                        },
-                        vimeo: {
-                          playerOptions: { byline: false }
-                        }
-                      }}
                     />
                   ) : (
                     /* Use native video tag for local files or direct video URLs */
