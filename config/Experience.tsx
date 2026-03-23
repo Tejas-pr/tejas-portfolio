@@ -20,6 +20,10 @@ import TypeScript from "@/components/technologies/TypeScript";
 import Vercel from "@/components/technologies/Vercel";
 import Angular from "@/components/technologies/Angular";
 import Django from "@/components/technologies/Django";
+import Redis from "@/components/technologies/Redis";
+import MySql from "@/components/technologies/MySql";
+import Shadcn from "@/components/technologies/Shadcn";
+import Turborepo from "@/components/technologies/Turborepo";
 
 export interface Technology {
   name: string;
@@ -27,12 +31,18 @@ export interface Technology {
   icon: React.ReactNode;
 }
 
+export interface ProjectDetails {
+  name: string;
+  description: string[];
+}
+
 export interface Experience {
   company: string;
   position: string;
   location: string;
   image: string;
-  description: string[];
+  description?: string[];
+  projects?: ProjectDetails[];
   startDate: string;
   endDate: string;
   website: string;
@@ -48,16 +58,30 @@ export const experiences: Experience[] = [
   {
     isCurrent: true,
     isBlur: false,
-    company: "Cronlabs Solutions",
-    position: "Jr. Software Engineer",
+    company: "Cronlab Solutions",
+    position: "Junior Software Developer",
     location: "Bangalore, India (On-Site)",
     image: "/images/company/cron-labs.jpeg",
-    description: [
-      "Delivered client-facing features for Cisco, improving UX and meeting stakeholder goals.",
-      "Built an interactive dashboard with draggable widgets for customizable user experiences.",
-      "Developed filtered dropdowns for smoother workflows and better performance.",
-      "Fixed bugs and polished UI/UX for a more stable, user-friendly platform.",
-      "Created frontend for video AI tool with in-browser trimming and merging.",
+    projects: [
+      {
+        name: "SmartGrow Platform and Marketplace",
+        description: [
+          "Took ownership to set up SmartGrow Marketplace from scratch using Turborepo — defined folder structure, routing strategy, state management, component library, and API integration layer; actively contributing full-stack (frontend to backend) alongside a 3-person team.",
+          "Writing unit and component-level test cases for the Marketplace codebase, improving code reliability and reducing regression bugs across Agile sprint cycles.",
+          "Built multi-tenant React.js dashboards across 10+ farms managing cultivation, inventory, and transfer workflows; reduced user search time by ~60% via advanced search, pagination, and tag-based filtering.",
+          "Automated METRIC compliance reporting for 50,000+ plant records cutting manual effort by ~80%; delivered interactive data visualizations (graphs, timelines) backed by optimized REST APIs, improving dashboard responsiveness.",
+          "Extended platform reach to field operators by shipping a cross-platform React Native mobile app with full feature parity, integrated with REST APIs.",
+        ],
+      },
+      {
+        name: "Cisco",
+        description: [
+          "Collaborated in a 4-developer team delivering 8+ client-facing features aligned with Cisco stakeholder requirements, improving UX consistency across 5+ product modules.",
+          "Implemented Redis-based caching for high-frequency filtered dropdowns, achieving ~95% API latency reduction with sub-10ms response times, reducing backend load across all dashboard consumers.",
+          "Engineered a widget-based drag-and-drop dashboard with configurable layout support, increasing user flexibility and reducing navigation friction for Cisco's internal operations teams.",
+          "Participated in Agile sprint planning, code reviews, and cross-team requirement alignment, ensuring on-time delivery of features across a distributed client engagement.",
+        ],
+      },
     ],
     startDate: "March 2025",
     endDate: "Present",
@@ -68,28 +92,37 @@ export const experiences: Experience[] = [
         icon: <Reactjs />,
       },
       {
-        name: "Angular",
-        href: "https://angular.io/",
-        icon: <Angular />,
-      },
-      {
         name: "TypeScript",
         href: "https://www.typescriptlang.org/",
         icon: <TypeScript />,
-      },
-      {
-        name: "Postman",
-        href: "https://www.postman.com/",
-        icon: <Postman />,
       },
       {
         name: "Django",
         href: "https://www.djangoproject.com/",
         icon: <Django />,
       },
+      {
+        name: "Redis",
+        href: "https://redis.io/",
+        icon: <Redis />,
+      },
+      {
+        name: "MySQL",
+        href: "https://www.mysql.com/",
+        icon: <MySql />,
+      },
+      {
+        name: "Shadcn/UI",
+        href: "https://ui.shadcn.com/",
+        icon: <Shadcn />,
+      },
+      {
+        name: "Turborepo",
+        href: "https://turbo.build/repo",
+        icon: <Turborepo />,
+      },
     ],
-    website:
-      "https://www.linkedin.com/company/strategify-analytics/posts/?feedView=all",
+    website: "https://www.cronlabs.io/",
     github: "#",
     x: "#",
   },
