@@ -20,7 +20,6 @@ import TypeScript from "@/components/technologies/TypeScript";
 import Vercel from "@/components/technologies/Vercel";
 import Angular from "@/components/technologies/Angular";
 import Django from "@/components/technologies/Django";
-import Turborepo from "@/components/technologies/Turborepo";
 import Redis from "@/components/technologies/Redis";
 import MySql from "@/components/technologies/MySql";
 import Shadcn from "@/components/technologies/Shadcn";
