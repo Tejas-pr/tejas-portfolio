@@ -87,11 +87,19 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactLenis root>
-            <Navbar />
-            {children}
-            <OnekoCat />
-            <Quote />
-            <Footer />
+            <div className="relative flex min-h-screen w-full flex-col bg-background">
+              {/* Grid Background */}
+              <div className="fixed inset-0 z-0 opacity-30 [background-size:40px_40px] [background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)] dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]" />
+              
+              {/* Content */}
+              <div className="relative z-10 flex min-h-screen flex-col">
+                <Navbar />
+                {children}
+                <OnekoCat />
+                <Quote />
+                <Footer />
+              </div>
+            </div>
           </ReactLenis>
         </ThemeProvider>
       </body>

@@ -107,11 +107,11 @@ export default function ContactModal({ children }: ContactModalProps) {
     <>
       <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="w-[95vw] sm:max-w-4xl p-0 overflow-hidden border-border bg-background shadow-2xl rounded-xl md:rounded-lg max-h-[95vh] md:max-h-[90vh]">
+      <DialogContent className="w-[95vw] sm:max-w-4xl p-0 overflow-hidden border-border/50 bg-background/60 backdrop-blur-xl shadow-2xl rounded-xl md:rounded-lg max-h-[95vh] md:max-h-[90vh]">
         <div className="flex flex-col md:flex-row h-full max-h-[95vh] md:max-h-[90vh] overflow-y-auto md:overflow-hidden">
           
           {/* Left Side: Contact Methods */}
-          <div className="flex w-full shrink-0 flex-col gap-5 bg-muted/20 p-6 md:w-[40%] md:border-r border-b md:border-b-0 border-border md:p-8 md:overflow-y-auto">
+          <div className="flex w-full shrink-0 flex-col gap-5 bg-black/5 dark:bg-white/5 p-6 md:w-[40%] md:border-r border-b md:border-b-0 border-border/50 md:p-8 md:overflow-y-auto">
             <DialogHeader className="text-left">
               <DialogTitle className="text-2xl font-bold tracking-tight">Let&apos;s Connect</DialogTitle>
               <DialogDescription className="mt-1 text-sm text-muted-foreground md:mt-2">
@@ -126,13 +126,13 @@ export default function ContactModal({ children }: ContactModalProps) {
                   onClick={option.action}
                   className={cn(
                     "group flex w-full items-center gap-4 rounded-xl border p-3 text-left transition-all duration-300",
-                    "border-border bg-background shadow-sm hover:-translate-y-0.5 hover:shadow-md",
+                    "border-border/50 bg-background/40 shadow-sm hover:-translate-y-0.5 hover:shadow-md",
                     option.colorClass,
                   )}
                 >
                   <div
                     className={cn(
-                      "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-muted/50 transition-transform duration-300 group-hover:scale-110",
+                      "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-background/60 transition-transform duration-300 group-hover:scale-110",
                       option.iconClass,
                     )}
                   >
@@ -150,7 +150,7 @@ export default function ContactModal({ children }: ContactModalProps) {
           </div>
 
           {/* Right Side: Notion Iframe */}
-          <div className="w-full shrink-0 md:w-[60%] h-[500px] md:h-auto md:min-h-[600px] bg-background">
+          <div className="w-full shrink-0 md:w-[60%] h-[500px] md:h-auto md:min-h-[600px] bg-transparent">
             <iframe 
               src="https://big-galette-716.notion.site/ebd//36262e5f423e809e982de05cd9c6ef5c" 
               width="100%" 
