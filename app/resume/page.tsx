@@ -4,7 +4,7 @@ import { resumeConfig } from "@/config/Resume";
 import { Separator } from "@radix-ui/react-separator";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   ...getPageMetadata("/resume"),
@@ -41,22 +41,38 @@ export default function ResumePage() {
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             My resume.
           </p>
-          <Button
-            variant="default"
-            className="inset-shadow-indigo-500"
-            asChild
-          >
-            <a
-              href={downloadHref}
-              download="Tejas_PR_Resume.pdf"
-              aria-label="Download Resume"
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button
+              variant="default"
+              className="inset-shadow-indigo-500"
+              asChild
             >
-              <Download className="mr-2 size-4" />
-              Download Resume
-            </a>
-          </Button>
+              <a
+                href={downloadHref}
+                download="Tejas_PR_Resume.pdf"
+                aria-label="Download Resume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="mr-2 size-4" />
+                Download Resume
+              </a>
+            </Button>
+            {/* WORD BUTTON */}
+            <Button variant="outline" asChild>
+              <a
+                href="https://docs.google.com/document/d/1Yk87Fq3FlwKg7twtErKL424PV61vMQSwZeAP4hzMuPw/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="mr-2 size-4" />
+                Word View
+              </a>
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground mx-auto max-w-lg">
+            💡 <strong>Note:</strong> The Word view will always contain the most up-to-date version of my resume.
+          </p>
         </div>
         <Separator />
         <div className="mx-auto max-w-2xl">

@@ -20,6 +20,7 @@ import TypeScript from "@/components/technologies/TypeScript";
 import Vercel from "@/components/technologies/Vercel";
 import Angular from "@/components/technologies/Angular";
 import Django from "@/components/technologies/Django";
+import Turborepo from "@/components/technologies/Turborepo";
 
 export interface Technology {
   name: string;
@@ -53,11 +54,14 @@ export const experiences: Experience[] = [
     location: "Bangalore, India (On-Site)",
     image: "/images/company/cron-labs.jpeg",
     description: [
-      "Delivered client-facing features for Cisco, improving UX and meeting stakeholder goals.",
-      "Built an interactive dashboard with draggable widgets for customizable user experiences.",
-      "Developed filtered dropdowns for smoother workflows and better performance.",
-      "Fixed bugs and polished UI/UX for a more stable, user-friendly platform.",
-      "Created frontend for video AI tool with in-browser trimming and merging.",
+      "Engineered a high-concurrency reservation and checkout system using Django + Redis distributed locks; transitioned inventory reconciliation to async ETL/polling, cutting race conditions by 99.9% and handling 10,000+ daily cart operations at peak load across 1,000+ concurrent users.",
+      "Architected a system-wide Global Search infrastructure driven by MySQL Full-Text Search and frontend debouncing, reducing API query latency by ~45% and standardizing search UX across 15+ marketplace modules.",
+      "Scaffolded SmartGrow Marketplace from zero using Turborepo — defined monorepo structure, routing, state management, component library, and API layer across a 3-person cross-functional team.",
+      "Built multi-tenant dashboards managing cultivation, inventory, and transfer workflows across 10+ farms; reduced user search time by ~60% via advanced filtering, tag-based search, and pagination.",
+      "Strengthened organizational security by implementing RBAC, double-submit protection, and multi-tenant access controls, effectively neutralizing 100% of unauthorized payload execution risks.",
+      "Unified 15+ disjointed UI components into a shared reusable architecture, reducing boilerplate by ~35% and frontend response delay by 200–300ms via optimistic UI updates.",
+      "Delivered 8+ client-facing Cisco features; implemented Redis-cached high-frequency dropdowns achieving sub-10ms response times and ~95% backend load reduction.",
+      "Automated compliance reporting for 50,000+ plant records, cutting manual effort by ~80%; shipped a cross-platform React Native app for field operators with offline-capable workflows.",
     ],
     startDate: "March 2025",
     endDate: "Present",
@@ -68,9 +72,9 @@ export const experiences: Experience[] = [
         icon: <Reactjs />,
       },
       {
-        name: "Angular",
-        href: "https://angular.io/",
-        icon: <Angular />,
+        name: "turborepo",
+        href: "https://turborepo.dev/",
+        icon: <Turborepo />,
       },
       {
         name: "TypeScript",

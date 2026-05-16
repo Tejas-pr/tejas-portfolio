@@ -24,6 +24,28 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    title: "ION – Cloud Deployment Platform",
+    description:
+      "Engineered a scalable Cloud Deployment Platform (Bun, Node.js, Redis, PostgreSQL) using a Distributed Microservices Architecture and an asynchronous, non-blocking build pipeline with Docker for isolated repository builds and real-time status transitions. Developed key performance features including high-concurrency log streaming (WebSockets/Redis Pub/Sub) for millisecond-latency user feedback and a custom dynamic “Edge” proxy for optimized static asset delivery. Optimized security and resource management by integrating Docker for build-time isolation and leveraging Prisma ORM/PostgreSQL for robust multi-tenant data handling. The entire platform orchestrates 5 specialized services (Repo, Build, Request, WebSocket, Auth) via Turborepo and Cloudflare R2/S3 storage.",
+    image: "/images/projects/ion.png",
+    video: "",
+    link: "https://github.com/Tejas-pr/Ion",
+    technologies: [
+      { name: "Bun", icon: <Bun key="bun" /> },
+      { name: "Node.js", icon: <NodeJs key="nodejs" /> },
+      { name: "PostgreSQL", icon: <PostgreSQL key="postgresql" /> },
+      { name: "Prisma", icon: <Prisma key="prisma" /> },
+      { name: "Docker", icon: <Docker key="docker" /> },
+      { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
+      { name: "Github", icon: <Github key="github" /> },
+    ],
+    github: "https://github.com/Tejas-pr/Ion",
+    live: "https://github.com/Tejas-pr/Ion",
+    details: true,
+    projectDetailsPageSlug: "/projects/ion",
+    isWorking: true,
+  },
+  {
     title: "Sketchly – AI Powered Drawing App",
     description:
       "Interactive AI-powered drawing platform where users can draw shapes like rectangles, circles, triangles, and freehand strokes using a refined ShadCN UI. Built with a scalable monorepo architecture using Turborepo, Next.js, Prisma ORM, and TailwindCSS — featuring Better Auth for authentication and real-time collaboration powered by WebSockets. Includes BullMQ + Redis for job queueing, CI/CD-enabled automated Docker deployments, and LangChain-driven AI to generate shapes and assist with creativity.",

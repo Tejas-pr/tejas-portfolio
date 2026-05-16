@@ -13,6 +13,8 @@ import X from "@/components/svg/X";
 import { Instagram } from "lucide-react";
 import TypeScript from "@/components/technologies/TypeScript";
 import { resumeConfig } from "@/config/Resume";
+import Notion from "@/components/svg/Notion";
+import LeetCode from "@/components/svg/LeetCode";
 
 // Component mapping for skills
 export const skillComponents = {
@@ -118,5 +120,15 @@ export const socialLinks = [
     name: "Instagram",
     href: "https://instagram.com/tejas_p_r",
     icon: <Instagram />,
+  },
+  {
+    name: "Notion",
+    href: "https://www.notion.so/TEJAS-P-R-36262e5f423e802e8a1bf9799e94dabe",
+    icon: <Notion />,
+  },
+  {
+    name: "LeetCode",
+    href: "https://leetcode.com/u/tejas_pr/",
+    icon: <LeetCode />,
   },
 ];

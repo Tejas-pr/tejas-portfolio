@@ -68,8 +68,24 @@ export default function Hero() {
         className="size-24 rounded-full bg-blue-300 dark:bg-yellow-300"
       />
 
+      {/* Publication Badge */}
+      <div className="mt-6 flex">
+        <Link 
+          href="https://link.springer.com/chapter/10.1007/978-981-97-3817-5_10" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 transition-colors hover:bg-indigo-500/20"
+        >
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+            <span className="relative inline-flex size-2 rounded-full bg-indigo-500"></span>
+          </span>
+          Publication in Springer: Stock Price Prediction Using LSTM
+        </Link>
+      </div>
+
       {/* Text Area */}
-      <div className="mt-8 flex flex-col gap-2">
+      <div className="mt-4 flex flex-col gap-2">
         <h1 className="text-4xl font-bold">
           Hi, I&apos;m {name} — <span className="text-secondary">{title}</span>
         </h1>

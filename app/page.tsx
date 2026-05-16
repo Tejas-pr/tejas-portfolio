@@ -9,6 +9,7 @@ import Github from "@/components/landing/Github";
 import CTA from "@/components/landing/CTA";
 import Blog from "@/components/landing/Blog";
 import Journey from "@/components/landing/Journey";
+import Certifications from "@/components/landing/Certifications";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Experience />
       <Projects />
       <About />
+      <Certifications />
       <Github />
       {/* <Blog /> */}
       <CTA />

@@ -96,4 +96,66 @@ export const quotes = [
     quote: `You have power over your mind — not outside events.`,
     author: 'Marcus Aurelius',
   },
+
+  // 🗡️ More Anime
+  {
+    quote: `If you don't take risks, you can't create a future.`,
+    author: 'Monkey D. Luffy, One Piece',
+  },
+  {
+    quote: `A dropout will beat a genius through hard work.`,
+    author: 'Rock Lee, Naruto',
+  },
+  {
+    quote: `I want to be strong enough so no one can tell me what to do.`,
+    author: 'Guts, Berserk',
+  },
+  {
+    quote: `Fear is not evil. It tells you what your weakness is.`,
+    author: 'Gildarts Clive, Fairy Tail',
+  },
+
+  // 💻 More Tech / Dev
+  {
+    quote: `Any fool can write code that a computer can understand. Good programmers write code that humans can understand.`,
+    author: 'Martin Fowler',
+  },
+  {
+    quote: `Talk is cheap. Show me the code.`,
+    author: 'Linus Torvalds',
+  },
+  {
+    quote: `Truth can only be found in one place: the code.`,
+    author: 'Robert C. Martin',
+  },
+  {
+    quote: `Experience is the name everyone gives to their mistakes.`,
+    author: 'Oscar Wilde (Dev mantra)',
+  },
+
+  // 🧘 More Stoic / Philosophy
+  {
+    quote: `He who has a why to live for can bear almost any how.`,
+    author: 'Friedrich Nietzsche',
+  },
+  {
+    quote: `Waste no more time arguing what a good man should be. Be one.`,
+    author: 'Marcus Aurelius',
+  },
+  {
+    quote: `Don't explain your philosophy. Embody it.`,
+    author: 'Epictetus',
+  },
+  {
+    quote: `The obstacle in the path becomes the path.`,
+    author: 'Zen Proverb',
+  },
+  {
+    quote: `The mind is everything. What you think you become.`,
+    author: 'Buddha',
+  },
+  {
+    quote: `In the middle of every difficulty lies opportunity.`,
+    author: 'Albert Einstein',
+  }
 ];
