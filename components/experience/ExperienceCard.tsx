@@ -135,17 +135,43 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         </div>
       </div>
 
-      {/* Description */}
-      <div className="text-secondary flex flex-col">
-        {experience.description.map(
-          (description: string, descIndex: number) => (
-            <p
-              key={descIndex}
-              dangerouslySetInnerHTML={{
-                __html: `• ${parseDescription(description)}`,
-              }}
-            />
-          ),
+      {/* Description or Projects */}
+      <div className="text-secondary flex flex-col gap-4">
+        {experience.description && (
+          <div className="flex flex-col">
+            {experience.description.map(
+              (description: string, descIndex: number) => (
+                <p
+                  key={descIndex}
+                  dangerouslySetInnerHTML={{
+                    __html: `• ${parseDescription(description)}`,
+                  }}
+                />
+              ),
+            )}
+          </div>
+        )}
+
+        {experience.projects && (
+          <div className="flex flex-col gap-4">
+            {experience.projects.map((project, projectIndex) => (
+              <div key={projectIndex} className="flex flex-col gap-1">
+                <h5 className="text-foreground font-bold italic">
+                  Project {projectIndex + 1}: {project.name}
+                </h5>
+                <div className="flex flex-col">
+                  {project.description.map((desc, descIndex) => (
+                    <p
+                      key={descIndex}
+                      dangerouslySetInnerHTML={{
+                        __html: `• ${parseDescription(desc)}`,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>

@@ -21,6 +21,10 @@ import Vercel from "@/components/technologies/Vercel";
 import Angular from "@/components/technologies/Angular";
 import Django from "@/components/technologies/Django";
 import Turborepo from "@/components/technologies/Turborepo";
+import Redis from "@/components/technologies/Redis";
+import MySql from "@/components/technologies/MySql";
+import Shadcn from "@/components/technologies/Shadcn";
+import Turborepo from "@/components/technologies/Turborepo";
 
 export interface Technology {
   name: string;
@@ -28,12 +32,18 @@ export interface Technology {
   icon: React.ReactNode;
 }
 
+export interface ProjectDetails {
+  name: string;
+  description: string[];
+}
+
 export interface Experience {
   company: string;
   position: string;
   location: string;
   image: string;
-  description: string[];
+  description?: string[];
+  projects?: ProjectDetails[];
   startDate: string;
   endDate: string;
   website: string;
@@ -49,8 +59,8 @@ export const experiences: Experience[] = [
   {
     isCurrent: true,
     isBlur: false,
-    company: "Cronlabs Solutions",
-    position: "Jr. Software Engineer",
+    company: "Cronlab Solutions",
+    position: "Junior Software Developer",
     location: "Bangalore, India (On-Site)",
     image: "/images/company/cron-labs.jpeg",
     description: [
@@ -82,18 +92,32 @@ export const experiences: Experience[] = [
         icon: <TypeScript />,
       },
       {
-        name: "Postman",
-        href: "https://www.postman.com/",
-        icon: <Postman />,
-      },
-      {
         name: "Django",
         href: "https://www.djangoproject.com/",
         icon: <Django />,
       },
+      {
+        name: "Redis",
+        href: "https://redis.io/",
+        icon: <Redis />,
+      },
+      {
+        name: "MySQL",
+        href: "https://www.mysql.com/",
+        icon: <MySql />,
+      },
+      {
+        name: "Shadcn/UI",
+        href: "https://ui.shadcn.com/",
+        icon: <Shadcn />,
+      },
+      {
+        name: "Turborepo",
+        href: "https://turbo.build/repo",
+        icon: <Turborepo />,
+      },
     ],
-    website:
-      "https://www.linkedin.com/company/strategify-analytics/posts/?feedView=all",
+    website: "https://www.cronlabs.io/",
     github: "#",
     x: "#",
   },

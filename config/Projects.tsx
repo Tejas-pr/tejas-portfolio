@@ -20,6 +20,7 @@ import ThreeJs from "@/components/technologies/ThreeJs";
 import Turborepo from "@/components/technologies/Turborepo";
 import TypeScript from "@/components/technologies/TypeScript";
 import Vercel from "@/components/technologies/Vercel";
+import Redis from "@/components/technologies/Redis";
 import { Project } from "@/types/project";
 
 export const projects: Project[] = [
@@ -51,7 +52,7 @@ export const projects: Project[] = [
       "Interactive AI-powered drawing platform where users can draw shapes like rectangles, circles, triangles, and freehand strokes using a refined ShadCN UI. Built with a scalable monorepo architecture using Turborepo, Next.js, Prisma ORM, and TailwindCSS — featuring Better Auth for authentication and real-time collaboration powered by WebSockets. Includes BullMQ + Redis for job queueing, CI/CD-enabled automated Docker deployments, and LangChain-driven AI to generate shapes and assist with creativity.",
     image: "/images/projects/sketchly.png",
     video: "",
-    link: "https://drawing.tejaspr.site/",
+    link: "https://github.com/Tejas-pr/Ion.git",
     technologies: [
       { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
       { name: "Next.js", icon: <NextJs key="nextjs" /> },
@@ -72,8 +73,32 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
+    title: "PromptGrid",
+    description:
+      "A unified LLM routing layer that connects multiple AI models through a single, OpenRouter-style API. Switch, compare, and scale prompts across providers seamlessly with centralized API key management and real-time token tracking.",
+    image: "/images/projects/promptgrid.png",
+    video: "",
+    link: "https://github.com/Tejas-pr/PromptGrid",
+    technologies: [
+      { name: "Bun", icon: <Bun key="bun" /> },
+      { name: "Turborepo", icon: <Turborepo key="turborepo" /> },
+      { name: "React", icon: <ReactIcon key="react" /> },
+      { name: "Tailwind CSS", icon: <TailwindCss key="tailwindcss" /> },
+      { name: "shadcn/ui", icon: <Shadcn key="shadcn" /> },
+      { name: "Prisma", icon: <Prisma key="prisma" /> },
+      { name: "PostgreSQL", icon: <PostgreSQL key="postgresql" /> },
+      { name: "TypeScript", icon: <TypeScript key="typescript" /> },
+    ],
+    github: "https://github.com/Tejas-pr/PromptGrid",
+    live: "https://github.com/Tejas-pr/PromptGrid",
+    details: true,
+    projectDetailsPageSlug: "/projects/promptgrid",
+    isWorking: true,
+  },
+  {
     title: "Stackwatch",
-    description: "Built Stackwatch, a distributed, real-time uptime monitoring platform with a scalable microservices architecture.",
+    description:
+      "Built Stackwatch, a distributed, real-time uptime monitoring platform with a scalable microservices architecture.",
     image: "/images/projects/stackwatch.png",
     video: "/videos/stackwatch.mp4",
     link: "https://github.com/Tejas-pr/stackwatch",
