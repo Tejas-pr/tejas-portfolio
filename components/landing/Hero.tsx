@@ -100,7 +100,7 @@ export default function Hero() {
         <Link
           href="https://www.npmjs.com/package/tejas-ai-skills"
           target="_blank"
-          className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-indigo-500/30 bg-indigo-500/5 p-4 transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]"
+          className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-indigo-500/30 bg-indigo-500/5 p-4 backdrop-blur-sm transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]"
         >
           <div className="flex items-center gap-3">
             <div className="rounded-xl bg-indigo-500/20 p-2.5 text-indigo-400 ring-1 ring-indigo-500/30">
@@ -121,7 +121,7 @@ export default function Hero() {
           <Link
             href="https://nailcutter-npm.vercel.app/"
             target="_blank"
-            className="group flex h-full items-center justify-between rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 transition-all hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]"
+            className="group flex h-full items-center justify-between rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 backdrop-blur-sm transition-all hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]"
           >
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-emerald-500/20 p-2 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/30">
@@ -135,7 +135,7 @@ export default function Hero() {
           <Link
             href="https://www.npmjs.com/~tejaspr?activeTab=packages"
             target="_blank"
-            className="group flex h-full items-center justify-between rounded-xl border border-rose-500/30 bg-rose-500/5 p-4 transition-all hover:border-rose-500/50 hover:bg-rose-500/10 hover:shadow-[0_0_20px_rgba(244,63,94,0.15)]"
+            className="group flex h-full items-center justify-between rounded-xl border border-rose-500/30 bg-rose-500/5 p-4 backdrop-blur-sm transition-all hover:border-rose-500/50 hover:bg-rose-500/10 hover:shadow-[0_0_20px_rgba(244,63,94,0.15)]"
           >
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-rose-500/20 p-2 text-rose-600 dark:text-rose-400 ring-1 ring-rose-500/30">
@@ -217,10 +217,8 @@ export default function Hero() {
               >
                 <a
                   href={downloadHref}
-                  download="Tejas_PR_Resume.pdf"
+                  download="Tejas_P_R_Resume.pdf"
                   aria-label="Download Resume"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   {IconComponent && <IconComponent className="size-4" />}
                 </a>

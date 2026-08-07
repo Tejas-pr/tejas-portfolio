@@ -1,9 +1,22 @@
-const fallbackUrl = 'https://drive.google.com/file/d/1H0JEjhEgoSI8HYB4Y6mdK50qESDdH9pk/preview';
+// The resume lives in a single Google Doc — edit it there and the site
+// picks up the change automatically. No more manually exporting a PDF and
+// re-uploading it: both the embedded preview and the "Download" button are
+// generated live from this same doc on every request.
+//
+// Override the doc via NEXT_PUBLIC_RESUME_DOC_ID if it ever moves. The
+// default below is extracted from:
+// https://docs.google.com/document/d/1Yk87Fq3FlwKg7twtErKL424PV61vMQSwZeAP4hzMuPw/edit
+const DEFAULT_DOC_ID = "1Yk87Fq3FlwKg7twtErKL424PV61vMQSwZeAP4hzMuPw";
 
-const shareLink = process.env.NEXT_PUBLIC_UNIQUE_SHARE_CODE;
-
-const resumeLink = process.env.NEXT_PUBLIC_RESUME_LINK || (shareLink ? `https://drive.google.com/file/d/${shareLink}/preview` : fallbackUrl);
+const docId = process.env.NEXT_PUBLIC_RESUME_DOC_ID || DEFAULT_DOC_ID;
 
 export const resumeConfig = {
-  url: resumeLink,
+  docId,
+  // Read-only, embeddable live preview of the doc's current content.
+  previewUrl: `https://docs.google.com/document/d/${docId}/preview`,
+  // Opens the doc directly on Google Docs.
+  editUrl: `https://docs.google.com/document/d/${docId}/edit?usp=sharing`,
+  // Our proxy (app/api/resume/route.ts) that streams a freshly generated
+  // PDF export of the doc, under a fixed filename.
+  downloadHref: "/api/resume",
 };

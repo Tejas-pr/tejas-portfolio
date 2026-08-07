@@ -89,12 +89,16 @@ export default function RootLayout({
           <ReactLenis root>
             <div className="relative flex min-h-screen w-full flex-col bg-background">
               {/* Grid Background */}
-              <div className="fixed inset-0 z-0 opacity-30 [background-size:40px_40px] [background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)] dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]" />
+              <div className="fixed inset-0 z-0 opacity-50 [background-size:40px_40px] [background-image:linear-gradient(to_right,#d4d4d8_1px,transparent_1px),linear-gradient(to_bottom,#d4d4d8_1px,transparent_1px)] dark:[background-image:linear-gradient(to_right,#3a3a3a_1px,transparent_1px),linear-gradient(to_bottom,#3a3a3a_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]" />
               
               {/* Content */}
               <div className="relative z-10 flex min-h-screen flex-col">
                 <Navbar />
-                {children}
+                {/* overflow-x-hidden is scoped here (not on an ancestor of
+                    Navbar) so full-bleed sections like CTA's breakout can't
+                    cause a page-wide horizontal scrollbar, without breaking
+                    the Navbar's `position: sticky`. */}
+                <div className="overflow-x-hidden">{children}</div>
                 <OnekoCat />
                 <Quote />
                 <Footer />

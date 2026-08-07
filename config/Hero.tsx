@@ -32,7 +32,7 @@ export const skillComponents = {
 export const heroConfig = {
   // Personal Information
   name: "Tejas",
-  title: "A Full Stack Developer.",
+  title: "A Software Developer",
   avatar: "/images/logos/dnchat.png",
 
   // Skills Configuration
@@ -81,7 +81,7 @@ export const heroConfig = {
     {
       variant: "outline",
       text: "",
-      href: resumeConfig.url,
+      href: resumeConfig.downloadHref,
       icon: "Download",
       isDownload: true,
     },

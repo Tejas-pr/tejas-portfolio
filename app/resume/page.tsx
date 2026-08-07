@@ -22,15 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default function ResumePage() {
-  // Extract File ID from Google Drive URL
-  const fileIdMatch = resumeConfig.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  const fileId = fileIdMatch ? fileIdMatch[1] : null;
-
-  // Use API proxy if ID found, otherwise fallback to original URL
-  const downloadHref = fileId
-    ? `/api/resume?id=${fileId}`
-    : resumeConfig.url;
-
   return (
     <Container className="py-16">
       <div className="space-y-8">
@@ -48,36 +39,35 @@ export default function ResumePage() {
               asChild
             >
               <a
-                href={downloadHref}
-                download="Tejas_PR_Resume.pdf"
+                href={resumeConfig.downloadHref}
+                download="Tejas_P_R_Resume.pdf"
                 aria-label="Download Resume"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 <Download className="mr-2 size-4" />
                 Download Resume
               </a>
             </Button>
-            {/* WORD BUTTON */}
             <Button variant="outline" asChild>
               <a
-                href="https://docs.google.com/document/d/1Yk87Fq3FlwKg7twtErKL424PV61vMQSwZeAP4hzMuPw/edit?usp=sharing"
+                href={resumeConfig.editUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FileText className="mr-2 size-4" />
-                Word View
+                Open in Google Docs
               </a>
             </Button>
           </div>
           <p className="text-sm text-muted-foreground mx-auto max-w-lg">
-            💡 <strong>Note:</strong> The Word view will always contain the most up-to-date version of my resume.
+            💡 <strong>Note:</strong> Both the preview below and the PDF download
+            are generated live from the same Google Doc, so they always reflect
+            the latest edits.
           </p>
         </div>
         <Separator />
         <div className="mx-auto max-w-2xl">
           <iframe
-            src={resumeConfig.url}
+            src={resumeConfig.previewUrl}
             className="min-h-screen w-full"
           ></iframe>
         </div>

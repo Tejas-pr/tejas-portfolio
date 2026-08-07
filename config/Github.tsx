@@ -7,7 +7,7 @@
 
 export const githubConfig = {
   username: "Tejas-pr",
-  apiUrl: "https://github-contributions-api.deno.dev",
+  apiUrl: "https://github-contributions.vercel.app/api/v1",
 
   // Display settings
   title: "GitHub Activity",

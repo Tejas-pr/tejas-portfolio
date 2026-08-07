@@ -132,6 +132,34 @@
   font-family: "Hanken Grotesk", sans-serif;
 }
 
+/* Thin scrollbar for the GitHub contribution calendar's horizontal scroll
+   (react-activity-calendar renders its own `__scroll-container` element). */
+.react-activity-calendar__scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.dark .react-activity-calendar__scroll-container {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+}
+
+.dark .react-activity-calendar__scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .font-hanken-grotesk-italic {
   font-family: "Hanken Grotesk Italic", sans-serif;
 }

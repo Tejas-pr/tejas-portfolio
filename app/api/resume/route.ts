@@ -1,41 +1,41 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import { resumeConfig } from "@/config/Resume";
 
-export async function GET(req: NextRequest) {
-    const searchParams = req.nextUrl.searchParams;
-    const id = searchParams.get("id");
+// Always fetch fresh from Google — never let this route (or a CDN in front
+// of it) cache a stale PDF snapshot of the resume doc.
+export const dynamic = "force-dynamic";
 
-    if (!id) {
-        return NextResponse.json({ error: "Missing file ID" }, { status: 400 });
-    }
-
-    const googleDriveUrl = `https://drive.google.com/uc?export=download&id=${id}`;
+// Streams a freshly generated PDF export of the resume Google Doc, so the
+// download always matches whatever is currently in the doc — no manual
+// re-export/re-upload step required.
+export async function GET() {
+    const exportUrl = `https://docs.google.com/document/d/${resumeConfig.docId}/export?format=pdf`;
 
     try {
-        const response = await fetch(googleDriveUrl);
+        const response = await fetch(exportUrl, { cache: "no-store" });
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch from Google Drive: ${response.status}`);
+            throw new Error(`Failed to export resume doc: ${response.status}`);
         }
 
         const buffer = await response.arrayBuffer();
         const headers = new Headers();
-
-        // Determine content type (fallback to pdf if unknown)
-        const contentType = response.headers.get("content-type") || "application/pdf";
-        headers.set("Content-Type", contentType);
-
-        // Set the filename as requested
-        headers.set("Content-Disposition", 'attachment; filename="Tejas_P_R_Resume.pdf"');
+        headers.set("Content-Type", "application/pdf");
+        headers.set(
+            "Content-Disposition",
+            'attachment; filename="Tejas_P_R_Resume.pdf"'
+        );
+        headers.set("Cache-Control", "no-store");
 
         return new NextResponse(buffer, {
             status: 200,
             headers,
         });
     } catch (error) {
-        console.error("Download error:", error);
+        console.error("Resume export error:", error);
         return NextResponse.json(
-            { error: "Failed to download resume" },
-            { status: 500 }
+            { error: "Failed to export resume" },
+            { status: 502 }
         );
     }
 }

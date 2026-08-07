@@ -6,12 +6,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { type Project } from "@/types/project";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,73 +13,65 @@ import React, { useState } from "react";
 
 import ArrowRight from "../svg/ArrowRight";
 import Github from "../svg/Github";
-import PlayCircle from "../svg/PlayCircle";
 import Website from "../svg/Website";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import dynamic from "next/dynamic";
-
-const ReactPlayer = dynamic(() => import("react-player"), { 
-  ssr: false,
-  loading: () => <div className="flex h-full w-full items-center justify-center">Loading player...</div>
-}) as any;
 
 interface ProjectCardProps {
   project: Project;
 }
 
+// A live deploy link we can screenshot — not a GitHub repo used as a stand-in "live" url.
+function isPreviewableLiveLink(url?: string): url is string {
+  if (!url) return false;
+  try {
+    const { hostname, protocol } = new URL(url);
+    return (
+      (protocol === "http:" || protocol === "https:") &&
+      !hostname.includes("github.com")
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
-  const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
+  const [screenshotFailed, setScreenshotFailed] = useState<boolean>(false);
+
+  const canShowLiveScreenshot =
+    hasError && !screenshotFailed && isPreviewableLiveLink(project.live);
 
   return (
     <Card className="group h-full w-full overflow-hidden border-gray-100 p-0 shadow-none transition-all dark:border-gray-800">
       <CardHeader className="p-0">
-        <div className="group relative aspect-video overflow-hidden">
-          <Image
-            className="h-full w-full object-cover"
-            src={project.image}
-            alt={project.title}
-            width={1920}
-            height={1080}
-          />
-          {project.video && (
-            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-              <DialogTrigger asChild>
-                <div className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:backdrop-blur-xs">
-                  <button className="flex size-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-colors duration-200 group-hover:cursor-pointer hover:bg-white/30">
-                    <PlayCircle />
-                  </button>
-                </div>
-              </DialogTrigger>
-              <DialogContent className="w-full max-w-4xl border-0 p-0">
-                <div className="aspect-video w-full">
-                  {/* Use ReactPlayer for external URLs (YouTube, Vimeo, etc.) */}
-                  {(project.video.startsWith('http://') || 
-                    project.video.startsWith('https://')) && 
-                   !project.video.match(/\.(mp4|webm|ogg|mov)$/i) ? (
-                    <ReactPlayer
-                      url={project.video}
-                      width="100%"
-                      height="100%"
-                      controls={true}
-                      playing={true}
-                      onReady={() => console.log('ReactPlayer ready for:', project.video)}
-                      onError={(e: any) => console.error('ReactPlayer error:', e)}
-                    />
-                  ) : (
-                    /* Use native video tag for local files or direct video URLs */
-                    <video
-                      className="h-full w-full rounded-lg object-cover"
-                      src={project.video}
-                      autoPlay
-                      loop
-                      controls
-                      muted
-                    />
-                  )}
-                </div>
-                <DialogTitle className="sr-only">{project.title}</DialogTitle>
-              </DialogContent>
-            </Dialog>
+        <div className="group relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-900">
+          {canShowLiveScreenshot ? (
+            <Image
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              src={`https://api.microlink.io/?url=${encodeURIComponent(
+                project.live
+              )}&screenshot=true&meta=false&embed=screenshot.url`}
+              alt={`Live preview of ${project.title}`}
+              width={1920}
+              height={1080}
+              unoptimized
+              onError={() => setScreenshotFailed(true)}
+            />
+          ) : hasError ? (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 p-6 text-center">
+              <span className="text-xl font-bold text-gray-400 dark:text-gray-600">
+                {project.title}
+              </span>
+            </div>
+          ) : (
+            <Image
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              src={project.image}
+              alt={project.title}
+              width={1920}
+              height={1080}
+              onError={() => setHasError(true)}
+            />
           )}
         </div>
       </CardHeader>

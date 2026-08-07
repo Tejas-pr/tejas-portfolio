@@ -56,39 +56,25 @@ export default function Github() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `${githubConfig.apiUrl}/${githubConfig.username}.json`,
+          `/api/github-contributions?username=${githubConfig.username}`
         );
         const data: { contributions?: unknown[] } = await response.json();
 
         if (data?.contributions && Array.isArray(data.contributions)) {
-          // Flatten the nested array structure
-          const flattenedContributions = data.contributions.flat();
-
-          // Convert contribution levels to numbers
-          const contributionLevelMap = {
-            NONE: 0,
-            FIRST_QUARTILE: 1,
-            SECOND_QUARTILE: 2,
-            THIRD_QUARTILE: 3,
-            FOURTH_QUARTILE: 4,
-          };
-
           // Transform to the expected format
-          const validContributions = flattenedContributions
+          const validContributions = data.contributions
             .filter(
-              (item: unknown): item is GitHubContributionResponse =>
+              (item: any): item is any =>
                 typeof item === "object" &&
                 item !== null &&
                 "date" in item &&
-                "contributionCount" in item &&
-                "contributionLevel" in item,
+                "count" in item &&
+                "intensity" in item,
             )
-            .map((item: GitHubContributionResponse) => ({
+            .map((item: any) => ({
               date: String(item.date),
-              count: Number(item.contributionCount || 0),
-              level: (contributionLevelMap[
-                item.contributionLevel as keyof typeof contributionLevelMap
-              ] || 0) as ContributionItem["level"],
+              count: Number(item.count || 0),
+              level: Number(item.intensity || 0) as ContributionItem["level"],
             }));
 
           if (validContributions.length > 0) {
